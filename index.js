@@ -1,6 +1,6 @@
 // // index wants stuff from server
 
-// const server = require('./lib/server.js');
+const server = require('./lib/server.js');
 
 // // index.js job is to be front door, and to start server. server itself will have all other stuff. so server needs something called start (method)
 // server.start();
