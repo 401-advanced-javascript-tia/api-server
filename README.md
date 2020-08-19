@@ -13,7 +13,8 @@ SOME INFORMATION ABOUT YOU
 
 ## Collaborations and Resources
 - Alex Whan
-- 
+- https://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
+- https://expressjs.com/en/guide/writing-middleware.html
 
 ## Version
 1.0.2
