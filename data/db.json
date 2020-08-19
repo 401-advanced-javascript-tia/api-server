@@ -1,0 +1,72 @@
+{
+  "categories": [
+    {
+      "id": "3",
+      "name": "tools",
+      "display_name": "Tools",
+      "description": "these are tools"
+    },
+    {
+      "id": "2",
+      "name": "bicycles",
+      "display_name": "Bicycles",
+      "description": "these are bicycles"
+    },
+    {
+      "id": "1",
+      "name": "cameras",
+      "display_name": "Cameras",
+      "description": "these are cameras"
+    },
+    {
+      "id": "EMk7fjk"
+    }
+  ],
+  "products": [
+    {
+      "id": "b1",
+      "category": "bicycles",
+      "name": "schwinn",
+      "display_name": "Schwinn",
+      "description": "this is a schwinn bike"
+    },
+    {
+      "id": "b2",
+      "category": "bicycles",
+      "name": "cervelo",
+      "display_name": "Cervelo",
+      "description": "this is a cervelo bike"
+    },
+    {
+      "id": "c2",
+      "category": "cameras",
+      "name": "canon",
+      "display_name": "Canon",
+      "description": "this is a canon camera"
+    },
+    {
+      "id": "c1",
+      "category": "cameras",
+      "name": "nikon",
+      "display_name": "Nikon",
+      "description": "this is a nikon camera"
+    },
+    {
+      "id": "t1",
+      "category": "tools",
+      "name": "dewalt",
+      "display_name": "DeWALT",
+      "description": "this is a dewalt tool"
+    },
+    {
+      "id": "t2",
+      "category": "tools",
+      "name": "stanley",
+      "display_name": "Stanley",
+      "description": "this is a stanley tool"
+    },
+    {
+      "id": "m46nl36"
+    }
+  ]
+}
