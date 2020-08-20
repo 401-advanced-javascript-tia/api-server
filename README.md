@@ -17,10 +17,14 @@ SOME INFORMATION ABOUT YOU
 - https://expressjs.com/en/guide/writing-middleware.html
 
 ## Version
-1.0.2
+1.0.3
 
 ## Tech Used
 ALL TECH GOES HERE IN LIST FORMAT
+
+## ENV SAMPLES
+- PORT:
+- MONGODB_URI:
 
 ## Domain Modeling
 IF YOU HAVE DATABASE INFORMATION IT GOES HERE
@@ -37,8 +41,9 @@ Tuesday : 8-18-20 : **Phase 2**
   - Note that today data doesn't persist between server sessions, that functonality will come in future phase
 
 Wednesday : 8-19-20 : **Phase 3**
-- 
-- 
+- Migrating from in-memory data storage to using Mongo to store the data permanently
+- Modularize routes for flexiblity
+- Maintain same interface for users
 
 Thursday : 8-20-20 : **Phase 4**
 - 
