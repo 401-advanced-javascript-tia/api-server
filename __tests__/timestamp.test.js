@@ -17,7 +17,7 @@ describe('Timestamp Middleware', () => {
         
         // CANT QUITE FIGURE OUT WHAT TO TEST HERE! ILL COME BACK TO IT. 
 
-        console.log('RESULTS IN TIMESTAMP TEST: ', results);
+        // console.log('RESULTS IN TIMESTAMP TEST: ', results);
       }).catch(console.error);
 
   });

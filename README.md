@@ -1,6 +1,6 @@
 # API-Server
 Code 401 Lab 6-9 Project
-**Description**: _______
+**Description**: virtual storefront using MongoDB persistence and modularity to provide for maximum flexiblity.
 
 ## See the Site
 IF SITE IS PUBLISHED PUT THE LINK HERE
@@ -9,10 +9,10 @@ IF SITE IS PUBLISHED PUT THE LINK HERE
 Tia Low
 
 ### About
-SOME INFORMATION ABOUT YOU
+Full-stack JavaScript developer with a diverse background of personal and professional experience.
 
 ## Collaborations and Resources
-- Alex Whan
+- Alex, Beasley, Joe, Jen
 - https://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
 - https://expressjs.com/en/guide/writing-middleware.html
 
@@ -27,7 +27,7 @@ ALL TECH GOES HERE IN LIST FORMAT
 - MONGODB_URI:
 
 ## Domain Modeling
-IF YOU HAVE DATABASE INFORMATION IT GOES HERE
+- MongoDB name: products
 
 ## Daily Log
 Monday : 8-17-20 : **Phase 1** 
@@ -41,7 +41,7 @@ Tuesday : 8-18-20 : **Phase 2**
   - Note that today data doesn't persist between server sessions, that functonality will come in future phase
 
 Wednesday : 8-19-20 : **Phase 3**
-- Migrating from in-memory data storage to using Mongo to store the data permanently
+- Adding persistence by migrating from in-memory data storage to using Mongo to store the data permanently
 - Modularize routes for flexiblity
 - Maintain same interface for users
 
