@@ -13,10 +13,11 @@ SOME INFORMATION ABOUT YOU
 
 ## Collaborations and Resources
 - Alex Whan
-- 
+- https://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
+- https://expressjs.com/en/guide/writing-middleware.html
 
 ## Version
-1.0.1
+1.0.2
 
 ## Tech Used
 ALL TECH GOES HERE IN LIST FORMAT
@@ -31,8 +32,9 @@ Monday : 8-17-20 : **Phase 1**
 - Created working documentation with Swagger Hub
 
 Tuesday : 8-18-20 : **Phase 2** 
-- 
-- 
+- Transition from json-server that served as a "mock" towards an API server using Express and Node.js
+  - Create full express server with modular middleware and routes
+  - Note that today data doesn't persist between server sessions, that functonality will come in future phase
 
 Wednesday : 8-19-20 : **Phase 3**
 - 
