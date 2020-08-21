@@ -6,12 +6,12 @@ const mongoose = require('mongoose');
 // index wants stuff from server
 const server = require('./lib/server.js');
 
-// bring in dotend to use .env file
+// bring in dotenv to use .env file
 require('dotenv').config();
 
 // port var to use port in env file
 const PORT = process.env.PORT;
-// ditto to user mongoose uri in env file
+// ditto to use mongoose uri in env file
 const MONGOOSE = process.env.MONGODB_URI;
 
 const mongooseOptions = {

@@ -30,8 +30,8 @@ async function stopDB() {
   mongoServer && await mongoServer.stop();
 }
 
-beforeAll(startDB);
-afterAll(stopDB);
+beforeEach(startDB);
+afterEach(stopDB);
 
 if (!module.parent) {
   describe('supergoose', () => {
