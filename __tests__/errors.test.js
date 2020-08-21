@@ -11,7 +11,16 @@ describe('404 Error Handling', () => {
       .get('/invalid')
       .then( results=> {
         expect(results.status).toBe(404);
-      }).catch(console.error);
+      });
+    // have to take out the catch because it will cause the test to pass- false positive- this function will catch the error befor Jest seeing that an error exists    .catch(console.error);
+  });
+
+  it('should response with 404 on invalid route', async () => {
+
+    //different way of writing the above test
+    const results = await mockRequest.get('/invalid');
+    expect(results.status).toBe(404);
+
   });
 
   it('should respond with a 404 on an invalid method', () => {
@@ -19,7 +28,14 @@ describe('404 Error Handling', () => {
       .post('/')
       .then( results=> {
         expect(results.status).toBe(404);
-      }).catch(console.error);
+      });
+  });
+
+  it('should respond with a 404 on an invalid method', async () => {
+    
+    const results = await mockRequest.get('/invalid');
+    expect(results.status).toBe(404);
+
   });
   
 });
