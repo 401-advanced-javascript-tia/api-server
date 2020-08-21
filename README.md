@@ -46,8 +46,8 @@ Wednesday : 8-19-20 : **Phase 3**
 - Maintain same interface for users
 
 Thursday : 8-20-20 : **Phase 4**
-- 
-- 
+- Create a single router module that will work for any data model, rather than having separate router modules for every data module
+- Create a single "mongo" collection class that every data model can extend from, keeping the CRUD login for the models very dry
 
 ### Swagger Hub Documentation
 https://app.swaggerhub.com/apis/TiaLow/online-store/0.1#/info
