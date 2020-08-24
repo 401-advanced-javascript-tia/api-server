@@ -1,9 +1,6 @@
 'use strict';
 
 const logMiddelware = require('../lib/middleware/logger.js');
-// const {server} = require('../lib/server.js');
-// const supertest = require('supertest');
-// const mockRequest = supertest(server);
 
 describe('Logger Middleware', () => {
   
@@ -33,16 +30,5 @@ describe('Logger Middleware', () => {
     logMiddelware(req,res,next);
     expect(next).toHaveBeenCalled();
   });
-
-
-  // it('should call console.log', () => {
-
-  //   return mockRequest
-  //     .get('/products')
-  //     .then( results => {
-  //       expect(consoleSpy).toHaveBeenCalled();
-  //     }).catch(console.error);
-
-  // });
 
 });
