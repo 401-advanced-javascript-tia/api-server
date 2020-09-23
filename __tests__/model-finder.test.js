@@ -11,12 +11,15 @@ beforeEach(async () => {
 
 describe('Products API', () => {
 
-  it('returns empty when empty', async () => {
+  it('returns empty array when empty', async () => {
 
     const products = await mockRequest.get('/api/v1/products');
+    expect(products.status).toBe(200);
     expect(products.body.count).toBe(0);
     expect(products.body.results.length).toBe(0);
+
   });
+
 
   it('can create() a new product', async () => {
 
@@ -26,10 +29,12 @@ describe('Products API', () => {
     const response = await mockRequest.post('/api/v1/products').send(testData);
     expect(response.status).toBe(200);
     compareProps(testData, response.body);
+
   });
 
 
   it('can get() all products', async () => {
+
     const testData = { category: 'writing', name: 'pencil', display_name: 'Pencil', description:'this is a pencil' };
 
     await mockRequest.post('/api/v1/products').send(testData);
@@ -42,6 +47,7 @@ describe('Products API', () => {
 
     expect(response.body.count).toBe(2);
     expect(response.body.results.length).toBe(2);
+
   });
 
 
