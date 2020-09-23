@@ -1,77 +1,120 @@
-// const Products = require('../lib/models/products/products-collection.js');
-// let products = new Products();
-
-// const Categories = require('../lib/models/categories/categories-collection.js');
+const {server} = require('../lib/server.js');
+const supergoose = require('@code-fellows/supergoose');
+const productModel = require('../lib/models/products/products-collection.js');
 // require('./supergoose.js');
 
-// let categories = new Categories();
+const mockRequest = supergoose(server);
+
+beforeEach(async () => {
+  await productModel.schema.deleteMany({});
+});
+
+describe('Products API', () => {
+
+  it('returns empty array when empty', async () => {
+
+    const products = await mockRequest.get('/api/v1/products');
+    expect(products.status).toBe(200);
+    expect(products.body.count).toBe(0);
+    expect(products.body.results.length).toBe(0);
+
+  });
 
 
-// describe('Categories Testing', () => {
+  it('can create() a new product', async () => {
 
-//   // it('can create() a new category', () => {
-//   //   let obj = {name:'Test Categories'};
-//   //   return categories.create(obj)
-//   //     .then(record => {
-//   //       Object.keys(obj).forEach(key =>{
-//   //         expect(record[key]).toEqual(obj[key]);
-//   //       });
-//   //     })
-//   //     .catch(e => console.error('ERR', e) );
-//   // });
+    const testData = { category: 'writing', name: 'pencil', display_name: 'Pencil', description:'this is a pencil' };
+    // you have to send it all the data (keys) it wants, or else it wont pass
 
-//   // it('can get() a category', () => {
-//   //   let obj = {name:'Test Categories 2'};
-//   //   return categories.create(obj)
-//   //     .then(record => {
-//   //       return categories.get(record.id)
-//   //         .then(category => {
-//   //           Object.keys(obj).forEach(key =>{
-//   //             expect(category[0][key]).toEqual(obj[key]);
-//   //           });
-//   //         });
-//   //     });
-//   // });
+    const response = await mockRequest.post('/api/v1/products').send(testData);
+    expect(response.status).toBe(200);
+    compareProps(testData, response.body);
+
+  });
 
 
+  it('can get() all products', async () => {
+
+    const testData = { category: 'writing', name: 'pencil', display_name: 'Pencil', description:'this is a pencil' };
+
+    await mockRequest.post('/api/v1/products').send(testData);
+
+    const testData2 = { category: 'writing', name: 'pen', display_name: 'Pen', description:'this is a pen to write with' };
+
+    await mockRequest.post('/api/v1/products').send(testData2);
+
+    const response = await mockRequest.get('/api/v1/products');
+
+    expect(response.body.count).toBe(2);
+    expect(response.body.results.length).toBe(2);
+
+  });
+
+
+  it('can get() a product', async () => {
+    const testData = { category: 'writing', name: 'pencil', display_name: 'Pencil', description:'this is a pencil' };
+
+    const {body : createdTest} = await mockRequest.post('/api/v1/products').send(testData);
+    const response = await mockRequest.get('/api/v1/products/' + createdTest._id);
+
+    // console.log('REQUEST IN GET 1 PROD TEST:', response.body);
+    expect(response.body[0]._id).toBe(createdTest._id);
+
+  });
+
+  it('can update (PUT) a product', async () => {
+    const testData = { category: 'writing', name: 'pencil', display_name: 'Pencil', description:'this is a pencil' };
+
+    const {body : createdTest} = await mockRequest.post('/api/v1/products').send(testData);
+
+    testData.category = 'drawing';
+
+    const response = await mockRequest.put('/api/v1/products/' + createdTest._id).send(testData);
+    // console.log('RESPONSE IN PUT TEST', response.body);
+
+    expect(response.body.category).toBe('drawing');
+  });
+
+  it('can update (PATCH) a product', async () => {
+    const testData = { category: 'writing', name: 'pencil', display_name: 'Pencil', description:'this is a pencil' };
+
+    const {body : createdTest} = await mockRequest.post('/api/v1/products').send(testData);
+
+    testData.category = 'drawing';
+
+    const response = await mockRequest.patch('/api/v1/products/' + createdTest._id).send(testData);
+    // console.log('RESPONSE IN PATCH TEST', response.body);
+
+    expect(response.body.category).toBe('drawing');
+
+  });
+
+
+
+
+  it('can delete() a product', async () => {
+
+    const testData = { id:'1', category: 'writing', name: 'pencil', display_name: 'Pencil', description:'this is a pencil' };
+
+    const {body : createdTest} = await mockRequest.post('/api/v1/products').send(testData);
+    // console.log('CREATEDTEST IN DELETE:', createdTest);
+    const {body: deletedTest} = await mockRequest.delete('/api/v1/products/' + createdTest._id);
+    // console.log('RESPONSE IN DELETE:', deletedTest);
+    compareProps(deletedTest, createdTest);
+
+  });
 
 
 
 
 
+});
 
-// });
+function compareProps(a,b){
+  for(let key in a) {
+    const valueA = a[key];
+    const valueB = b[key];
+    expect(valueA).toBe(valueB);
+  }
+}
 
-// describe('Products Testing', () => {
-
-
-//   // it('can create() a new product', () => {
-//   //   let obj = {name:'Mouse', price:9.99, description:'works good',category:'electronics'};
-//   //   return products.create(obj)
-//   //     .then(record => {
-//   //       Object.keys(obj).forEach(key =>{
-//   //         expect(record[key]).toEqual(obj[key]);
-//   //       });
-//   //     });
-//   // });
-
-//   // it('can get() a product', () => {
-//   //   let obj = {name:'Mouse', price:9.99, description:'works good',category:'electronics'};
-//   //   return products.create(obj)
-//   //     .then(record => {
-//   //       return products.get(record._id)
-//   //         .then(product => {
-//   //           Object.keys(obj).forEach(key =>{
-//   //             expect(product[0][key]).toEqual(obj[key]);
-//   //           });
-//   //         });
-//   //     });
-//   // });
-
-
-
-
-
-
-  
-// });

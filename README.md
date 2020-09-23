@@ -17,7 +17,7 @@ Full-stack JavaScript developer with a diverse background of personal and profes
 - https://expressjs.com/en/guide/writing-middleware.html
 
 ## Version
-1.0.3
+1.4.1
 
 ## Tech Used
 ALL TECH GOES HERE IN LIST FORMAT
@@ -52,5 +52,5 @@ Thursday : 8-20-20 : **Phase 4**
 ### Swagger Hub Documentation
 https://app.swaggerhub.com/apis/TiaLow/online-store/0.1#/info
 
-### Stretch Goals
-ANY STRETCH GOALS CAN BE ADDED HERE
+### UML Diagram
+![UML Diagram](./img/UML-Diagram.png)

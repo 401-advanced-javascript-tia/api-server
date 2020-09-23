@@ -1,25 +1,35 @@
 'use strict';
 
 const {server} = require('../lib/server.js');
+const timeMiddleware = require('../lib/middleware/timestamp.js');
 const supertest = require('supertest');
 const mockRequest = supertest(server);
 
-let consoleSpy = jest.spyOn(console, 'log');
+let req = {};
+let res = {};
+let next = jest.fn(); //to spy on the next method
 
 describe('Timestamp Middleware', () => {
 
-  it('should call create instance of Date object', () => {
+  it('should log output to console.log', () => {
 
     return mockRequest
-      .get('/products')
+      .get('/api/vi/products')
       .then( results => {
-        // expect(consoleSpy).toInclude();
-        
-        // CANT QUITE FIGURE OUT WHAT TO TEST HERE! ILL COME BACK TO IT. 
-
-        // console.log('RESULTS IN TIMESTAMP TEST: ', results);
-      }).catch(console.error);
+        let dateinHeader = results.req.res.headers.date;
+        expect(dateinHeader).toBeDefined();
+      });
+    // .catch(console.error);
 
   });
 
+  
+  it('should move to next middleware when done', () => {
+  
+    timeMiddleware(req,res,next);
+    expect(next).toHaveBeenCalled();
+  });
+
 });
+
+

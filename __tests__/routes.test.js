@@ -5,19 +5,19 @@ const supergoose = require('./supergoose.js');
 const {server} = require(`${rootDir}/lib/server.js`);
 const mockRequest = supergoose(server);
 
-it('should be able to post to /api/v1/categories', () => {
+// it('should be able to post to /api/v1/categories', () => {
 
-  let obj = {name:'test'};
+//   let obj = {name:'test'};
 
-  return mockRequest
-    .post('/api/v1/categories')
-    .send(obj)
-    .then(results => {
-      expect(results.status).toBe(200);
-      expect(results.body.name).toEqual(obj.name);
-    });
+//   return mockRequest
+//     .post('/api/v1/categories')
+//     .send(obj)
+//     .then(results => {
+//       expect(results.status).toBe(200);
+//       expect(results.body.name).toEqual(obj.name);
+//     });
 
-});
+// });
 
 
 // it('following a post to categories, should find a single record', () => {
